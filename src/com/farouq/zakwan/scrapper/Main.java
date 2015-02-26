@@ -61,9 +61,10 @@ public class Main {
 			
 			for(int i = 0; i < 46; i++){
 				
+			//	doc = Jsoup.connect("http://www.iium.edu.my/people-staff/staff-directory&maxView=96").get();
 				if(i != 0){
-					int startWith = i * 96;
-					doc = Jsoup.connect("http://www.iium.edu.my/people-staff/staff-directory&startsWith="+startWith+"&maxView=96").get();
+					 final int startWith = i * 96;
+					doc = Jsoup.connect("http://www.iium.edu.my/people-staff/staff-directory&startsWith="+startWith+"&maxView=96").timeout(20000).get();
 				}
 				
 				 names = doc.getElementsByClass("basic-info"); 
@@ -105,7 +106,7 @@ public class Main {
 					System.out.println(email.get(i1));
 				}
 				
-				
+			
 			}//end for loop..
 			
 			
